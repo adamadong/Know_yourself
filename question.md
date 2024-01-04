@@ -44,6 +44,6 @@
 3.11.19.27.35 autonomie indépendante  
 4.12.20.28.36 stabilité et sécurité  
 5.13.21.29.37 entreprenariat et créativité
-6.14.22.30.38 soucis des autres 
-7.15.23.31.39 challenge
-8.16.24.32.40 style de vie
+6.14.22.30.38 soucis des autres   
+7.15.23.31.39 challenge  
+8.16.24.32.40 style de vie  
