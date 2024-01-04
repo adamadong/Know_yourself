@@ -37,4 +37,13 @@
 37. J'espère que mon TFE sera un tremplin pour la création de mon entreprise  
 38. Je n'irai jamais travailler dans une entreprise qui ne vise pas le bien commun  
 39. Centrale Marseille nous dorlote un peu trop : j'aspire à faire face à l'adversité  
-40. J'aime travailler, mais ma priorité n'est pas le travail : j'aspire à un équilibre entre celui-ci et ma vie personnelle  
+40. J'aime travailler, mais ma priorité n'est pas le travail : j'aspire à un équilibre entre celui-ci et ma vie personnelle
+
+1.9.17.25.33   technique expertise  
+2.10.18.26.34 management  
+3.11.19.27.35 autonomie indépendante  
+4.12.20.28.36 stabilité et sécurité  
+5.13.21.29.37 entreprenariat et créativité
+6.14.22.30.38 soucis des autres 
+7.15.23.31.39 challenge
+8.16.24.32.40 style de vie
