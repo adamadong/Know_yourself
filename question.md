@@ -26,3 +26,15 @@
 26. Il est plus intéressant de manager une équipe que d'être spécialiste de haut niveau dans un domaine
 27. J'accepterai de partir à l'aventure pour le TFE, pour vu que je sois libre de travailler à ma façon, avec le minimum de contrainte
 28. Priorité à la sécurité financière et à celle de l'emploi: je n'ai pas fait 5 ans d'étude pour vivre dans l'incertitude 
+29. J'aimerais vraiment être à l'origine de la création d'un produit ou d'un service  
+30. Ce n'est pas ma carrière qui est le plus important pour moi aujourd'hui : c'est l'avenir de la planète et de l'humanité  
+31. Je chercherai un TFE qui défie fortement mes capacités à résoudre des problèmes  
+32. Equilibrer les exigences de la vie personnelle et  professionnelle est plus important que de monter rapidement dans le hiérarchie  
+33. J'aspire à un TFE qui me permette prioritairement de mobiliser mes savoirs scientifiques et techniques  
+34. Je refuserais tout emploi qui m'empêcherait d'atteindre une position de management général  
+35.  Ce n'est pas tant le salaire qui m'importe que la capacité à être autonome dans mon travail  
+36. En ces temps incertains, la sagesse est de viser un emploi sûr et pérenne  
+37. J'espère que mon TFE sera un tremplin pour la création de mon entreprise  
+38. Je n'irai jamais travailler dans une entreprise qui ne vise pas le bien commun  
+39. Centrale Marseille nous dorlote un peu trop : j'aspire à faire face à l'adversité  
+40. J'aime travailler, mais ma priorité n'est pas le travail : j'aspire à un équilibre entre celui-ci et ma vie personnelle  
