@@ -1,36 +1,35 @@
-import http from 'http';
-import fs from 'fs';
 import path from 'path';
-
 import { fileURLToPath } from 'url';
+import express from 'express';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const app = express()
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-    console.log(req.url)
+app.use("/static", express.static(path.join(__dirname, '/static')))
 
-    if (req.url === "/") {
-        console.log("redirection");
+app.get('/', (req, res) => {
+    res.redirect(301, '/static/index.html')
+})
 
-        res.writeHead(301, {Location: "http://" + req.headers['host'] + '/static/index.html'});
-        res.end();
-    } else  if (req.url.startsWith("/static/")) {
-        console.log("fichier statique");
-        let fichier = path.join(__dirname,  req.url);
-        
-        res.writeHead(200,  {'Content-Type': 'text/html'});
-        fichier = fs.readFileSync(fichier, {encoding:'utf8'});
-        res.end(fichier);
-    }
-    else {
-    res.writeHead(404,  {'Content-Type': 'text/plain'})
-    res.end();
-    }
-});
+app.get('/core',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core.html'));
+})
+app.get('/resultat',(req,res) =>{
+    res.sendFile(path.join(__dirname,'static','resultat.html'))
+})
+
+app.use(function (req, res) {
+    console.log("et c'est le 404 : " + req.url);
+
+    res.statusCode = 404;
+    res.setHeader('Content-Type', 'text/html');
+
+    res.end("<html><head><title>la quatre cent quatre</title></head><body><img  src=\"https://upload.wikimedia.org/wikipedia/commons/b/b4/Peugeot_404_Champs.jpg\" /></body></html>");
+
+})
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
