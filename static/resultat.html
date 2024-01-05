@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/Chart.js/3.9.1/chart.js"></script>
+</head>
+<body>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+const ctx = document.getElementById('myChart');
+const data = {
+  labels: [
+    'Expertise',
+    'Management',
+    'Autonomie',
+    'Stabilité',
+    'Créativité',
+    'Soucis des autres',
+    'Challenge',
+    'Style de vie'
+  ],
+  datasets: [{
+    label: '第一个数据集',
+    data: [16,20,13,22,14,15,17,19],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }, {
+    label: '第二个数据集',
+    data: [15,14,15,15,16,15,16,16],
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }]
+};
+const config = {
+  type: 'radar',
+  data: data,
+  options: {
+    responsive: true, // 设置图表为响应式，根据屏幕窗口变化而变化
+    maintainAspectRatio: false,// 保持图表原有比例
+    elements: {
+      line: {
+        borderWidth: 3 // 设置线条宽度
+      }
+    }
+  }
+};
+const myChart = new Chart(ctx, config);
+</script>
+
+</body>
+</html>
