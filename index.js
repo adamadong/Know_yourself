@@ -14,8 +14,20 @@ app.get('/', (req, res) => {
     res.redirect(301, '/static/index.html')
 })
 
-app.get('/core',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core.html'));
+app.get('/core1',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core1.html'));
+})
+app.get('/core2',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core2.html'));
+})
+app.get('/core3',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core3.html'));
+})
+app.get('/core4',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core4.html'));
+})
+app.get('/core5',(req,res) =>{
+    res.sendFile(path.join(__dirname, 'static', 'core5.html'));
 })
 app.get('/resultat',(req,res) =>{
     res.sendFile(path.join(__dirname,'static','resultat.html'))
