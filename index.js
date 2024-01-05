@@ -20,7 +20,6 @@ app.get('/core',(req,res) =>{
 app.get('/resultat',(req,res) =>{
     res.sendFile(path.join(__dirname,'static','resultat.html'))
 })
-
 app.use(function (req, res) {
     console.log("et c'est le 404 : " + req.url);
 
