@@ -130,7 +130,7 @@ const questions = [
             console.log('Server response:', data);
             // 在这里您可以添加一些反馈，如显示成功消息
             console.log('Received ratings from server:', data.ratings);
-            alert('Received ratings from server: ' + JSON.stringify(data.ratings));
+            
           })
           .catch(error => {
             console.error('Error sending data to server:', error);
