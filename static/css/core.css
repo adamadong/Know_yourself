@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+.welcome{
+  background-color: bisque;
+  height:130px
+}
+#logo {
+  position: absolute;
+  top: 1rem; 
+  right: 2rem;
+  max-width: 70%;  
+}
+.chapeau{
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+}
+.question-group{
+  text-align: center;
+  font-size: large;
+}
+nav{
+  display: flex;
+  justify-content: center;
+}

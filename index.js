@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
+import bodyParser from 'body-parser';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,30 +9,66 @@ const app = express()
 const hostname = '127.0.0.1';
 const port = 3000;
 
+
 app.use("/static", express.static(path.join(__dirname, '/static')))
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.redirect(301, '/static/index.html')
 })
 
-app.get('/core1',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core1.html'));
-})
-app.get('/core2',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core2.html'));
-})
-app.get('/core3',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core3.html'));
-})
-app.get('/core4',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core4.html'));
-})
-app.get('/core5',(req,res) =>{
-    res.sendFile(path.join(__dirname, 'static', 'core5.html'));
-})
+for (let i = 1; i <= 5; i++) {
+    app.get(`/core${i}`, (req, res) => {
+        res.sendFile(path.join(__dirname, 'static', `core${i}.html`),{sumGroups:JSON.stringify(sumGroups)});
+    });
+}
 app.get('/resultat',(req,res) =>{
-    res.sendFile(path.join(__dirname,'static','resultat.html'))
+    const data = {
+        sumGroups: JSON.stringify(sumGroups),
+    };
+    console.log('Server-side sumGroups:', sumGroups);
+    const queryString = `?data=${encodeURIComponent(JSON.stringify(data))}`;
+    res.sendFile(path.join(__dirname, 'static', 'resultat.html')+ queryString);
+    
 })
+
+
+let storedRatings = []
+let sumGroups = []
+app.post('/submitRating', (req, res) => {
+    const ratings = req.body.ratings;
+  
+    if (!ratings || !Array.isArray(ratings)) {
+      return res.status(400).json({ success: false, message: 'Invalid ratings data.' });
+    }
+    const currentRatings = ratings.map(item => parseInt(item.rating, 10));
+    storedRatings = storedRatings.concat(currentRatings);
+    // 在这里执行您的评分数据处理逻辑，例如保存到数据库
+    //console.log(currentRatings)
+    console.log('Current storedRatings:', storedRatings);
+    console.log('Data type of storedRatings:', typeof storedRatings);
+    //if (Array.isArray(storedRatings)) {
+        //console.log('Length of storedRatings array:', storedRatings.length);
+    //}
+    if (storedRatings.length == 40){
+        for (let i=0;i<8;i++){
+            const sum =storedRatings[i]+storedRatings[i+8]+storedRatings[i+16]+storedRatings[i+24]+storedRatings[[i+32]] ;
+            sumGroups.push(sum);
+        }
+    }
+    console.log(sumGroups)
+    globalThis.sumGroups = sumGroups;
+
+    const responseData = {
+        success: true,
+        message: 'Ratings received successfully.',
+        ratings: ratings  // 返回评分数据
+      };
+    
+      return res.json(responseData);
+  });
+
+
 app.use(function (req, res) {
     console.log("et c'est le 404 : " + req.url);
 
