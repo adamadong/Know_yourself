@@ -2,6 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
 import bodyParser from 'body-parser';
+import fs from 'fs'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,15 +23,20 @@ for (let i = 1; i <= 5; i++) {
         res.sendFile(path.join(__dirname, 'static', `core${i}.html`),{sumGroups:JSON.stringify(sumGroups)});
     });
 }
-app.get('/resultat',(req,res) =>{
-    const data = {
-        sumGroups: JSON.stringify(sumGroups),
+app.get('/resultat', (req, res) => {
+    const datatransfer = {
+        sumGroups: sumGroups,
     };
-    console.log('Server-side sumGroups:', sumGroups);
-    const queryString = `?data=${encodeURIComponent(JSON.stringify(data))}`;
-    res.sendFile(path.join(__dirname, 'static', 'resultat.html')+ queryString);
-    
-})
+
+    const htmlFilePath = path.join(__dirname, 'static', 'resultat.html');
+    const htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+    const modifiedHtmlContent = htmlContent.replace(
+        '<script id="dynamicData"></script>',
+        `<script id="dynamicData">const dynamicData = ${JSON.stringify(datatransfer)};</script>`
+    );
+
+    res.send(modifiedHtmlContent);
+});
 
 
 let storedRatings = []

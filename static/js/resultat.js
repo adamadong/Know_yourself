@@ -1,11 +1,8 @@
 const ctx = document.getElementById('myChart');
-var queryString = window.location.search;
-console.log('QueryString:', queryString);
-var urlParams = new URLSearchParams(queryString);
-var sumGroups = JSON.parse(decodeURIComponent(urlParams.get('data')));
-console.log('sumGroups:', sumGroups);
-resultat = sumGroups;
+resultat = dynamicData;
 console.log(resultat);
+console.log(typeof(resultat));
+console.log(Array.isArray(resultat));
 const data = {
   labels: [
     'Expertise',
@@ -19,7 +16,7 @@ const data = {
   ],
   datasets: [{
     label: 'Vos résultats',
-    data: resultat,
+    data: resultat.sumGroups,
     fill: true,
     backgroundColor: 'rgba(255, 99, 132, 0.2)',
     borderColor: 'rgb(255, 99, 132)',
@@ -49,6 +46,3 @@ const config = {
   }
 };
 const myChart = new Chart(ctx, config);
-function refaire() {
-    window.location.href = '/';
-}
